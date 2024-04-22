@@ -52,13 +52,6 @@ const Deputies = mongoose.model('deputies', deputiesSchema);
 
 const Note = mongoose.model('noteshm', noteSchema);
 
-app.use(
-    cors({
-        methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
-        origin: '*',
-        credentials: true,
-    })
-);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -189,3 +182,12 @@ app.delete('/deleteNoteItems/:id', async (req, res) => {
 app.listen(port, () => {
     console.log(`Сервер запущено на порті ${port}`);
 });
+
+
+app.use(
+    cors({
+        methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
+        origin: ['http://localhost:5173', '*'],
+        credentials: true,
+    })
+);
