@@ -57,7 +57,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const corsOptions = {
     methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
-    origin: ['https://ednipro.netlify.app/', '*'],
+    origin: ['http://localhost:5173', 'https://ednipro.netlify.app/', '*'],
     credentials: true,
 }
 
