@@ -55,6 +55,16 @@ const Note = mongoose.model('noteshm', noteSchema);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const corsOptions = {
+    methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
+    origin: ['http://localhost:5173', '*'],
+    credentials: true,
+}
+
+app.use(
+    cors(corsOptions)
+);
+
 app.post('/api/login', (req, res) => {
     const { email, password } = req.body;
     // Проверка наличия пользователя в базе данных
@@ -183,11 +193,3 @@ app.listen(port, () => {
     console.log(`Сервер запущено на порті ${port}`);
 });
 
-
-app.use(
-    cors({
-        methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
-        origin: ['http://localhost:5173', '*'],
-        credentials: true,
-    })
-);
