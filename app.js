@@ -52,9 +52,6 @@ const Deputies = mongoose.model('deputies', deputiesSchema);
 
 const Note = mongoose.model('noteshm', noteSchema);
 
-app.use(bodyParser.json());
-app.use(cors({ origin: ['http://localhost:5173', 'https://ednipro.netlify.app'] }));
-
 app.use(
     cors({
         methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
