@@ -1,3 +1,5 @@
+
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -52,6 +54,16 @@ const Note = mongoose.model('noteshm', noteSchema);
 
 app.use(bodyParser.json());
 app.use(cors({ origin: ['http://localhost:5173', 'https://ednipro.netlify.app'] }));
+
+app.use(
+    cors({
+        methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
+        origin: '*',
+        credentials: true,
+    })
+);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/api/login', (req, res) => {
     const { email, password } = req.body;
