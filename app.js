@@ -51,7 +51,7 @@ const Deputies = mongoose.model('deputies', deputiesSchema);
 const Note = mongoose.model('noteshm', noteSchema);
 
 app.use(bodyParser.json());
-app.use(cors({ origin: '*' }));
+app.use(cors({ origin: ['http://localhost:5173', 'https://ednipro.netlify.app'] }));
 
 app.post('/api/login', (req, res) => {
     const { email, password } = req.body;
